@@ -16,6 +16,9 @@ A hedonic pricing model has shown that the total acreage used for agriculture va
 
 Currently we are training linear classifiers (SVC) based on geographical, agricultural, and socioeconomic features, to evaluate potential areas of concentration in regard to land value and water use.
 
+*This project is supported in part by the Ogallala Aquifer Program, a consortium of the USDA Agricultural Research Service, Kansas State University, Texas A&M AgriLife Research, Texas A&M AgriLife Extension Service, Texas Tech University, and West Texas A&M University.*
+
+**Ms. Kevyn Thompson** (kbthompson1@buffs.wtamu.edu), the graduate student leading this research, was awarded the top poster presentation on the Southern Agricultural Economics Association (New Orleans, LA, Feb 15 2022)
 
 
 
