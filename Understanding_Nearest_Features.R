@@ -1,0 +1,12 @@
+ls1 = st_linestring(rbind(c(0,0), c(1,0)))
+ls2 = st_linestring(rbind(c(0,0.1), c(1,0.1)))
+ls3 = st_linestring(rbind(c(0,1), c(1,1)))
+(l = st_sfc(ls1, ls2, ls3))
+
+p1 = st_point(c(0.1, -0.1))
+p2 = st_point(c(0.1, 0.11))
+p3 = st_point(c(0.1, 0.09))
+p4 = st_point(c(0.1, 0.9))
+(p = st_sfc(p1, p2, p3, p4))
+try(st_nearest_feature(p, l))
+try(st_nearest_points(p, l[st_nearest_feature(p,l)], pairwise = TRUE))
