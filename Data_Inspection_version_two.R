@@ -56,25 +56,9 @@ Sale_GIS_df<- Sale_GIS_df[Sale_GIS_df$LONG != 0, ] # Get back to line 28 to plot
 Sale_GIS_sf<- sf::st_as_sf(Sale_GIS_df, coords= c("LONG", "LAT"), crs= 4326)
 Water_Use_sf<- sf::st_as_sf(Water_use_df, coords= c("GIS_LONG", "GIS_LAT"), crs= 4326)
 
+# Merging ----
 
-
-
-
-
-
-
-
-
-
-
-
-# Merging (OLD VERSION) ----
-
-# This operation keeps the geometry of the Sale data, and adds the
-# values for ACRES_IRR, AF_USED, and PUMP_RATE in the Water data,
-# using the coordinates in Sale-data more closely distant from Water-Data
-# more closely related in 
-
+# This operation keeps the geometry of the Sale data, and adds the columns in the Water data,
 open_time<- Sys.time()
 st_join(
   Sale_GIS_sf,
@@ -83,21 +67,16 @@ st_join(
   left= T
 ) -> Sale_Water_sf
 
-
 # If need o keep (lat, long) in separate columns #####
-
 # Convert sf back to a data frame (matrix)
 Sale_Water_df<- Sale_Water_sf %>% sf::st_drop_geometry()
 Sale_Water_coords<- sf::st_coordinates(Sale_Water_sf)
 Sale_Water_df[,c("LONG","LAT")]<- Sale_Water_coords
 
-# Export the final "merged" data frame for Cheyenne (with lat and long @ end)
 # NOTE  .csv files are easier to handle than xls, or xlsx
-# If you REALLY need to work with excel files directly, you can simply save
-# the csv file in any excel format you want 
 Sale_Water_df %>%  write.csv(., "Sale_Water_All_Merged.csv")
 
-
+# ----- End data merging ------ #
 
 
 # ----- Do not run this ----------------
