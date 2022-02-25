@@ -82,4 +82,4 @@ kevyn<- cbind(Sale_GIS_sf, Water_Use_nearest_sf,
       Sale_Water_coordinates, Water_Use_nearest_coordinates,
       Sale_distance_Water, Sale_distance_Water_st)
 
-
+# write.csv(kevyn, "NN_Data_Thompson_distances.csv")
