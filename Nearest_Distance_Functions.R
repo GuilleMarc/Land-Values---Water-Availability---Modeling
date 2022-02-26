@@ -1,5 +1,4 @@
 library(sf)
-
 # Making up point-geometries:
 # Three points for location "t"
 t0= st_point(c(0.0, 0.0))
@@ -39,7 +38,6 @@ get_d_haversine<- function(x,y){
   a= 0.5 - cos((y[2]-x[2])*p)/2 + cos(x[2]*p) * cos(y[2]*p) * (1-cos((y[1]-x[1])*p))/2
   return(12742 * asin(sqrt(a)))
 }
-
 
 # Try the st_nearest_feature function in sf: ----
 nearest= t[st_nearest_feature(s, t)]
