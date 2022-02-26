@@ -5,7 +5,7 @@ library(tidyverse)
 library(sf)
 
 # Find nearest features and distances -----
-
+# See functions "get_d" and "get_dhaversine" in Nearest_Distance_Functions.R:
 # Find the nearest locations: (indexes)
 Water_indexes<- st_nearest_feature(
   Sale_GIS_sf, Water_Use_sf
@@ -23,7 +23,6 @@ Sale_Water_nearest_geometries<- cbind(
   Water_Use_nearest
 )
 colnames(Sale_Water_nearest_geometries)<- c("sales","water")
-
 # Calculate the distances (my way): ----
 
 open_time<- Sys.time()
